@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationView{
             VStack {
                 NavigationLink(
-                    destination: LoginView()) {
+                    destination: NextVC()) {
                     Text("Next")
                         .font(.title)
                         .foregroundColor(Color.white)
