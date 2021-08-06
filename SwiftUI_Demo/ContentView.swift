@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
+//    let contentView = LoginView()
+    
     var body: some View {
         
         NavigationView{
             VStack {
                 NavigationLink(
-                    destination: NextVC()) {
+                    destination: LoginView()) {
                     Text("Next")
                         .font(.title)
                         .foregroundColor(Color.white)
