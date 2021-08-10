@@ -13,6 +13,8 @@ struct Email_Validation: View {
     
     let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$")
     
+    @State private var alertIsPresented = false
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var passwordIconChanging: Bool = false
@@ -106,6 +108,10 @@ struct Email_Validation: View {
                 if self.emailPredicate.evaluate(with: email) && self.passwordPredicate.evaluate(with: password) {
                     
                     Button(action: {
+                        if self.emailPredicate.evaluate(with: email) && self.passwordPredicate.evaluate(with: password) {
+                            
+                            self.alertIsPresented = true
+                        }
                         
                     }, label: {
                         Text("Login")
@@ -117,6 +123,9 @@ struct Email_Validation: View {
                     .cornerRadius(20)
                     .padding(.bottom, 20)
                     .transition(AnyTransition.opacity.animation(.easeIn))
+                    .alert(isPresented: $alertIsPresented, content: {
+                        Alert(title: Text("Done"), message: Text("You are successfully logged in"), dismissButton: .default(Text("Next!")))
+                    })
                 }
                 
             }.background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
