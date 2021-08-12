@@ -12,7 +12,7 @@ struct SwiftUI_DemoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Email_Validation()
+            ListView()
         }
     }
 }
