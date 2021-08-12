@@ -124,7 +124,7 @@ struct Email_Validation: View {
                     .padding(.bottom, 20)
                     .transition(AnyTransition.opacity.animation(.easeIn))
                     .alert(isPresented: $alertIsPresented, content: {
-                        Alert(title: Text("Done"), message: Text("You are successfully logged in"), dismissButton: .default(Text("Next!")))
+                        Alert(title: Text("Done"), message: Text("You are successfully logged in"), dismissButton: .default(Text("Close")))
                     })
                 }
                 
